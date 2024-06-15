@@ -1,0 +1,271 @@
+
+git clone https://github.com/fit-dran/localcolab
+
+sudo apt update
+
+sudo apt -y install apache2
+
+Modified Tutorial Steps:
+Update and Install Apache Server:
+
+bash
+Copy code
+sudo apt update
+sudo apt -y install apache2
+Start Apache:
+
+bash
+Copy code
+sudo systemctl restart apache2
+Update Firewall Settings:
+
+bash
+Copy code
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo netfilter-persistent save
+Test Apache Server:
+
+You can test your server from the command line:
+bash
+Copy code
+curl localhost
+Or, you can connect your browser to your public IP address assigned to your instance:
+url
+Copy code
+http://<x.x.x.x>
+Install PHP:
+
+bash
+Copy code
+sudo apt -y install php libapache2-mod-php
+Verify PHP Installation and Restart Apache:
+
+bash
+Copy code
+php -v
+sudo systemctl restart apache2
+Add a PHP Test File (optional, for testing PHP setup):
+
+Create the file:
+bash
+Copy code
+sudo vi /var/www/html/info.php
+Input the following text and save the file:
+php
+Copy code
+<?php
+phpinfo();
+?>
+Connect to http://<your-public-ip-address>/info.php to see the PHP configuration.
+Deploy Your Website:
+
+Assuming you've already cloned your repository, you need to copy your website files to the Apache root directory. Here’s how you can do it:
+
+bash
+Copy code
+# Navigate to your repository directory
+cd /path/to/your/cloned/repository
+
+# Copy the website files to the Apache root directory
+sudo cp -r * /var/www/html/
+Replace /path/to/your/cloned/repository with the actual path where your repository is cloned.
+
+Set Permissions:
+Ensure that the Apache server has the correct permissions to access and serve your files:
+
+bash
+Copy code
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+Configure Apache (Optional, for advanced configurations):
+If you need to set up virtual hosts or other advanced configurations, you can edit the Apache configuration files:
+
+bash
+Copy code
+sudo vi /etc/apache2/sites-available/000-default.conf
+Example configuration for your site:
+
+apache
+Copy code
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+
+    <Directory /var/www/html/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+After editing, enable the configuration and restart Apache:
+
+bash
+Copy code
+sudo a2ensite 000-default.conf
+sudo systemctl restart apache2
+Access Your Website:
+Open a browser and navigate to your public IP address:
+
+url
+Copy code
+http://<your-public-ip-address>
+
+
+
+If you used the command git clone https://github.com/fit-dran/localcolab, your repository would be cloned into a directory named localcolab within your current working directory.
+
+So, if you ran the git clone command in your home directory, the path to your repository directory would be ~/localcolab.
+
+Here are the modified steps to navigate to your repository directory and copy your website files to the Apache root directory:
+
+Navigate to your repository directory:
+
+bash
+Copy code
+cd ~/localcolab
+Copy the website files to the Apache root directory:
+
+bash
+Copy code
+sudo cp -r * /var/www/html/
+If you cloned the repository in a different directory, adjust the path accordingly. For example, if you cloned the repository into /opt:
+
+Navigate to your repository directory:
+
+bash
+Copy code
+cd /opt/localcolab
+Copy the website files to the Apache root directory:
+
+bash
+Copy code
+sudo cp -r * /var/www/html/
+After copying the files, set the correct permissions:
+
+bash
+Copy code
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+Finally, restart Apache to ensure all changes take effect:
+
+bash
+Copy code
+sudo systemctl restart apache2
+Now, you should be able to access your website at your public IP address:
+
+url
+Copy code
+http://<your-public-ip-address>
+This should display your blog-style website that allows users to post emergencies or problems within a neighborhood group.
+
+
+
+Sure! Here’s a step-by-step tutorial on how to update your website when you have new changes in your GitHub repository:
+
+Step-by-Step Tutorial to Update Your Website
+1. Connect to Your Instance
+First, connect to your Oracle Cloud Infrastructure instance using SSH. If you’re using a local terminal, the command would look something like this:
+
+bash
+Copy code
+ssh -i path/to/your/private-key opc@<your-instance-ip-address>
+Replace path/to/your/private-key with the path to your SSH private key and <your-instance-ip-address> with the public IP address of your instance.
+
+2. Navigate to the Cloned Repository Directory
+Once connected to your instance, navigate to the directory where your repository is cloned. Assuming you cloned it to ~/localcolab, you would use:
+
+bash
+Copy code
+cd ~/localcolab
+3. Pull the Latest Changes from GitHub
+Use the git pull command to update your local repository with the latest changes from GitHub:
+
+bash
+Copy code
+git pull origin main
+This command fetches and merges the latest changes from the main branch of your remote repository.
+
+4. Copy the Updated Files to the Apache Root Directory
+Next, copy the updated files to the Apache root directory (/var/www/html). To ensure that all files are copied correctly, use the cp command with the -r (recursive) flag:
+
+bash
+Copy code
+sudo cp -r * /var/www/html/
+5. Set the Correct Permissions
+After copying the files, ensure that the Apache server has the correct permissions to access and serve them:
+
+bash
+Copy code
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+6. Restart Apache
+Finally, restart the Apache server to ensure that all changes take effect:
+
+bash
+Copy code
+sudo systemctl restart apache2
+7. Verify the Update
+Open your web browser and navigate to your public IP address to verify that your website has been updated:
+
+url
+Copy code
+http://<your-public-ip-address>
+Summary of Commands
+bash
+Copy code
+# Connect to your instance
+ssh -i path/to/your/private-key opc@<your-instance-ip-address>
+
+# Navigate to the repository directory
+cd ~/localcolab
+
+# Pull the latest changes from GitHub
+git pull origin main
+
+# Copy the updated files to the Apache root directory
+sudo cp -r * /var/www/html/
+
+# Set the correct permissions
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+
+# Restart Apache
+sudo systemctl restart apache2
+Automating the Update Process (Optional)
+If you frequently update your website, you might consider creating a script to automate the process. Here’s an example script (update_website.sh):
+
+bash
+Copy code
+#!/bin/bash
+
+# Navigate to the repository directory
+cd ~/localcolab
+
+# Pull the latest changes from GitHub
+git pull origin main
+
+# Copy the updated files to the Apache root directory
+sudo cp -r * /var/www/html/
+
+# Set the correct permissions
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+
+# Restart Apache
+sudo systemctl restart apache2
+
+echo "Website updated successfully!"
+Make the script executable:
+
+bash
+Copy code
+chmod +x update_website.sh
+Run the script whenever you need to update the website:
+
+bash
+Copy code
+./update_website.sh
+This will simplify the update process and ensure that all steps are performed consistently.

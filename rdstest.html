@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch Users</title>
+</head>
+<body>
+    <h1>Users List</h1>
+    <ul id="users-list"></ul>
+
+    <script>
+        async function fetchAndDisplayUsers() {
+            const endpoint = 'https://w00earvm7g.execute-api.us-east-1.amazonaws.com/dev';
+            
+            try {
+                const response = await fetch(endpoint);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                const usersList = document.getElementById('users-list');
+                usersList.innerHTML = '';  // Clear any existing content
+
+                data.body.forEach(user => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = user.username;
+                    usersList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error fetching users:', error);
+                alert('Failed to fetch users. Please try again later.');
+            }
+        }
+
+        // Call the function to fetch and display users when the page loads
+        window.onload = fetchAndDisplayUsers;
+    </script>
+</body>
+</html>
