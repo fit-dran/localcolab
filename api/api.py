@@ -114,7 +114,7 @@ def lambda_handler(event, context):
     headers = {
         'Access-Control-Allow-Origin': '*',  # Adjust this to specific origins if needed
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,GET,POST,PUT,DELETE',  # Add other allowed methods as needed
+        'Access-Control-Allow-Methods': 'OPTIONS,GET,POST,PUT,DELETE,PATCH'
     }
 
     return {
