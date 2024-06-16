@@ -1,7 +1,7 @@
 // Function to load posts from the API
 async function loadPosts() {
     const responseDiv = document.getElementById('notices');
-    responseDiv.innerHTML = 'Loading notices...';
+    responseDiv.innerHTML = 'Cargando avisos...';
 
     try {
         const response = await fetch('https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/posts');
@@ -23,7 +23,7 @@ function displayPosts(posts) {
     responseDiv.innerHTML = '';
 
     if (posts.length === 0) {
-        responseDiv.innerHTML = '<div class="alert alert-info">No notices found.</div>';
+        responseDiv.innerHTML = '<div class="alert alert-info">No se encontraron avisos.</div>';
         return;
     }
 
@@ -50,7 +50,7 @@ function displayComments(postId, comments) {
     commentsDiv.innerHTML = '';
 
     if (comments.length === 0) {
-        commentsDiv.innerHTML = '<div class="alert alert-info">No comments found.</div>';
+        commentsDiv.innerHTML = '<div class="alert alert-info">No se encontraron comentarios.</div>';
         return;
     }
 
@@ -78,7 +78,7 @@ function filterNotices(categoryName) {
     const categoryId = categoryMap[categoryName];
 
     const responseDiv = document.getElementById('notices');
-    responseDiv.innerHTML = 'Loading filtered notices...';
+    responseDiv.innerHTML = 'Cargando avisos filtrados...';
 
     fetch('https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/posts')
         .then(response => response.json())

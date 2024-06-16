@@ -10,7 +10,7 @@ async function createPost(event) {
     // Retrieve user information from localStorage
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (!loggedInUser) {
-        responseDiv.innerHTML = '<div class="alert alert-danger">Error: User not logged in.</div>';
+        responseDiv.innerHTML = '<div class="alert alert-danger">Error: Usuario no iniciado sesión.</div>';
         return;
     }
 
@@ -33,7 +33,7 @@ async function createPost(event) {
         });
 
         if (response.ok) {
-            responseDiv.innerHTML = '<div class="alert alert-success">Post created successfully!</div>';
+            responseDiv.innerHTML = '<div class="alert alert-success">¡Publicación creada exitosamente!</div>';
             document.getElementById('create-post-form').reset(); // Reset the form
         } else {
             const errorText = await response.text();

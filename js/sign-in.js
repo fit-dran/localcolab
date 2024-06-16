@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const responseDiv = document.createElement('div');
             responseDiv.setAttribute('id', 'response');
             signUpForm.appendChild(responseDiv);
-            responseDiv.innerHTML = 'Creating user...'; // Indicate loading state
+            responseDiv.innerHTML = 'Creando usuario...'; // Indicate loading state
 
             try {
                 const response = await fetch('https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/user', {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (response.ok) {
                     const data = await response.json();
-                    responseDiv.innerHTML = `<div class="alert alert-success">User created successfully: ${data.message.Item.email}</div>`;
+                    responseDiv.innerHTML = `<div class="alert alert-success">Usuario creado con éxito: ${data.message.Item.email}</div>`;
                 } else {
                     const errorText = await response.text();
                     responseDiv.innerHTML = `<div class="alert alert-danger">Error: ${response.status} - ${errorText}</div>`;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const responseDiv = document.createElement('div');
             responseDiv.setAttribute('id', 'response');
             signInForm.appendChild(responseDiv);
-            responseDiv.innerHTML = 'Logging in...'; // Indicate loading state
+            responseDiv.innerHTML = 'Iniciando sesión...'; // Indicate loading state
 
             try {
                 const response = await fetch(`https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/user?userid=${email}`, {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Redirect to another page (e.g., dashboard.html)
                         window.location.href = 'dashboard.html';
                     } else {
-                        responseDiv.innerHTML = '<div class="alert alert-danger">Error: Incorrect password</div>';
+                        responseDiv.innerHTML = '<div class="alert alert-danger">Error: Contraseña incorrecta< div>';
                     }
                 } else {
                     const errorText = await response.text();
