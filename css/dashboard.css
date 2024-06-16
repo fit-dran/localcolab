@@ -1,122 +1,75 @@
-/* Reset some default styles */
-body, h1, h2, h3, h4, h5, h6, p, ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-
-/* Body and general styles */
+/* Custom CSS */
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
     background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Header */
 header {
-    background-color: #343a40;
-    color: #fff;
+    background: linear-gradient(45deg, #003049, #003049); /* Colores de gradiente */
 }
 
-header .logo h1 {
-    font-size: 1.5rem;
+header h1 {
+    font-size: 2rem;
+    margin: 0;
 }
 
-header nav ul {
-    display: flex;
-    align-items: center;
+header .btn {
+    font-size: 1rem;
 }
 
-header nav ul li a {
-    color: #fff;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-}
-
-/* header nav ul li a:hover {
-    background-color: #495057;
-    border-radius: 5px;
-} */
-
-/* Main content */
-main .card {
+.card {
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    margin-bottom: 1.5rem;
 }
 
-main .card-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1rem;
+.card-header {
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(45deg, #003049, #003049); /* Gradiente verde */
+    color: white;
 }
 
-main .card-header h2, main .card-header h3 {
-    font-size: 1.25rem;
-    margin: 0;
+.card-body {
+    padding: 2rem;
 }
 
-main .card-body {
-    padding: 1rem;
+.form-control {
+    border-radius: 5px;
 }
 
-/* Categories list */
-aside .card-header {
-    background-color: #343a40;
-    color: #fff;
-}
-
-aside .list-group-item {
+.btn-success {
+    background: linear-gradient(45deg, #003049, #003049); /* Gradiente verde */
     border: none;
-    padding: 0.75rem 1.25rem;
-    cursor: pointer;
-    color: #343a40; /* Ensure the text color is dark initially */
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: background 0.3s;
 }
 
-aside .list-group-item:hover {
-    color: #ffffff; /* Change text color to white on hover */
+.btn-success:hover {
+    background: linear-gradient(45deg, #003049, #003049); /* Gradiente verde en hover */
 }
 
-/* Buttons */
-.btn-primary {
-    background-color: #007bff;
+.btn-secondary {
+    background: linear-gradient(45deg, #6c757d, #5a6268); /* Gradiente gris */
     border: none;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: background 0.3s;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+.btn-secondary:hover {
+    background: linear-gradient(45deg, #5a6268, #4e555b); /* Gradiente gris en hover */
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    header nav ul {
-        justify-content: center;
-        margin-top: 1rem;
-    }
-    
-    header nav ul li {
-        margin: 0 0.5rem;
-    }
-    
-    main .card {
-        margin-bottom: 1rem;
-    }
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #dcdcdc;
 }
