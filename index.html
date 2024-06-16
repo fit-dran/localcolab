@@ -3,78 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junta de Vecinos</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Plataforma de Gestión de Datos</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-primary py-3">
-        <div class="container d-flex justify-content-between align-items-center">
+    <header>
+        <div class="container">
             <div class="logo">
-                <h1>Junta de Vecinos</h1>
+                <h1>Junta de vecinos</h1>
             </div>
-            <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sign-in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+            <!-- <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Planes y Precios</a></li>
+                    <li><a href="#">Quiénes Somos</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
     </header>
-    <main class="container mt-4">
-        <section class="text-center mb-5">
-            <h2>Bienvenido a la Junta de Vecinos</h2>
-            <p>Nuestra plataforma facilita la comunicación y colaboración entre los miembros de la comunidad. Aquí podrás encontrar avisos importantes, agregar tus propios avisos y participar en las actividades de tu vecindario.</p>
-            <a href="sign-in.html" class="btn btn-primary btn-lg">Sign In</a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Bienvenido a tu junta de vecinos</h2>
+                <p>Nuestra plataforma facilita la comunicación y colaboración entre los miembros de la comunidad. Aquí podrás encontrar avisos importantes, agregar tus propios avisos y participar en las actividades de tu vecindario.</p>
+                <a href="#" class="btn">Iniciar sesion</a>
+            </div>
         </section>
-        <section class="mb-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Propuesta de Valor</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Facilitamos la comunicación y organización de eventos dentro de la comunidad.</p>
-                        </div>
+        <section class="services">
+            <div class="container">
+                <h2>¿Que ofrecemos?</h2>
+                <p>Potencie su organización con soluciones eficaces de gestión de datos</p>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Propuesta de valor</h3>
+                        <p>Facilitamos la comunicación y organización de eventos dentro de la comunidad.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Funciones</h3>
+                        <li>Agregar y editar avisos</li>
+                        <li>Filtrar avisos por categorías</li>
+                    </div>
+                    <div class="service-item">
+                        <h3>Precio</h3>
+                        <p>Nuestra plataforma es completamente gratuita para todos los miembros de la comunidad.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Funciones</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>Agregar y editar avisos</li>
-                                <li>Filtrar avisos por categorías</li>
-                                <li>Notificaciones en tiempo real</li>
-                            </ul>
-                        </div>
+            </div>
+        </section>
+        <section class="pricing">
+            <div class="container">
+                <h2>Planes y precios</h2>
+                <p>Seleccione un plan que se adapte a las necesidades de su organización</p>
+                <div class="plan-list">
+                    <div class="plan-item">
+                        <h3>Plan estándar</h3>
+                        <p>Ideal para pequeñas organizaciones</p>
+                    </div>
+                    <div class="plan-item">
+                        <h3>Plan Premium</h3>
+                        <p>Perfecto para grandes organizaciones</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Precio</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Nuestra plataforma es completamente gratuita para todos los miembros de la comunidad.</p>
-                        </div>
+            </div>
+        </section>
+        <section class="team">
+            <div class="container">
+                <h2>Nuestro equipo</h2>
+                <p>Conozca a los profesionales que están detrás de nuestro producto</p>
+                <a href="#" class="btn">Más información</a>
+            </div>
+        </section>
+        <section class="testimonials">
+            <div class="container">
+                <h2>Testimonios de clientes</h2>
+                <div class="testimonial-list">
+                    <div class="testimonial-item">
+                        <p>El sistema de gestión de datos de Helvians es excelente.</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>La comunicación transparente de Fitdran ha mejorado nuestra eficiencia.</p>
                     </div>
                 </div>
+                <a href="#" class="btn">Seguir leyendo</a>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="container">
+                <h2>Contacte con nosotros</h2>
+                <p>Póngase en contacto con nosotros para demostraciones de productos y consultas</p>
+                <form>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Introduzca su nombre">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Introduzca su dirección de email">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+        <section class="footer">
+            <div class="container">
+                <p>Síganos en las redes sociales</p>
+                <p>Contacte con nosotros: example@example.com | 123-456-7890</p>
+                <p>© 2021 Data Management Solutions. All Rights Reserved.</p>
             </div>
         </section>
     </main>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    <script src="scripts.js"></script>
 </body>
 </html>
