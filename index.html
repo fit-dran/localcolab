@@ -1,25 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Test</title>
+    <title>Junta de Vecinos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>API Status Test</h1>
-    <button id="fetchStatus">Fetch Status</button>
-    <div id="statusResult"></div>
-
-    <script>
-
-        const apiBaseUrl = 'https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production';
-
-        document.getElementById('fetchStatus').addEventListener('click', async () => {
-            const response = await fetch(`${apiBaseUrl}/users`);
-            const result = await response.json();
-            document.getElementById('statusResult').innerText = result.message;
-        });
-
-    </script>
+    <header class="bg-primary py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1>Junta de Vecinos</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sign-in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section class="text-center mb-5">
+            <h2>Bienvenido a la Junta de Vecinos</h2>
+            <p>Nuestra plataforma facilita la comunicación y colaboración entre los miembros de la comunidad. Aquí podrás encontrar avisos importantes, agregar tus propios avisos y participar en las actividades de tu vecindario.</p>
+            <a href="sign-in.html" class="btn btn-primary btn-lg">Sign In</a>
+        </section>
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Propuesta de Valor</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Facilitamos la comunicación y organización de eventos dentro de la comunidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Funciones</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Agregar y editar avisos</li>
+                                <li>Filtrar avisos por categorías</li>
+                                <li>Notificaciones en tiempo real</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Precio</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Nuestra plataforma es completamente gratuita para todos los miembros de la comunidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
 </body>
 </html>
