@@ -7,7 +7,7 @@ async function loadPosts() {
         const response = await fetch('https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/posts');
         if (response.ok) {
             const data = await response.json();
-            displayPosts(data);
+            displayPosts(data.message);
         } else {
             const errorText = await response.text();
             responseDiv.innerHTML = `<div class="alert alert-danger">Error: ${response.status} - ${errorText}</div>`;
@@ -33,8 +33,8 @@ function displayPosts(posts) {
         postDiv.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title">${post.title}</h5>
-                <p class="card-text">${post.description}</p>
-                <p class="card-text"><small class="text-muted">Category: ${post.category}</small></p>
+                <p class="card-text">${post.content}</p>
+                <p class="card-text text-right"><small class="text-muted">Creado por: ${post.email}</small></p>
             </div>
         `;
         responseDiv.appendChild(postDiv);
@@ -49,7 +49,7 @@ function filterNotices(category) {
     fetch('https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production/posts')
         .then(response => response.json())
         .then(data => {
-            const filteredPosts = data.filter(post => post.category === category);
+            const filteredPosts = data.message.filter(post => post.category_id === category);
             displayPosts(filteredPosts);
         })
         .catch(error => {
