@@ -1,0 +1,122 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Body and general styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #343a40;
+    color: #fff;
+}
+
+header .logo h1 {
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* header nav ul li a:hover {
+    background-color: #495057;
+    border-radius: 5px;
+} */
+
+/* Main content */
+main .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+main .card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1rem;
+}
+
+main .card-header h2, main .card-header h3 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+main .card-body {
+    padding: 1rem;
+}
+
+/* Categories list */
+aside .card-header {
+    background-color: #343a40;
+    color: #fff;
+}
+
+aside .list-group-item {
+    border: none;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    color: #343a40; /* Ensure the text color is dark initially */
+}
+
+aside .list-group-item:hover {
+    color: #ffffff; /* Change text color to white on hover */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header nav ul {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    header nav ul li {
+        margin: 0 0.5rem;
+    }
+    
+    main .card {
+        margin-bottom: 1rem;
+    }
+}

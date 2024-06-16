@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junta de Vecinos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header class="bg-primary py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1>Junta de Vecinos</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nuevo-aviso.html"><i class="fas fa-plus"></i> Agregar aviso</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-edit"></i> Editar aviso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <div class="row">
+            <aside class="col-md-3 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Categorías</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#" onclick="filterNotices('Robo')">Robo</a></li>
+                            <li class="list-group-item"><a href="#" onclick="filterNotices('Asalto')">Asalto</a></li>
+                            <li class="list-group-item"><a href="#" onclick="filterNotices('Casa sola')">Casa sola</a></li>
+                            <li class="list-group-item"><a href="#" onclick="filterNotices('Festividades')">Festividades</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <section class="col-md-9">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Agregar Nuevo Aviso</h2>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary btn-block" onclick="window.location.href='nuevo-aviso.html'"><i class="fas fa-plus"></i> Agregar Aviso</button>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>Avisos</h2>
+                    </div>
+                    <div class="card-body" id="notices">
+                        <!-- Avisos serán cargados aquí -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+</body>
+</html>
