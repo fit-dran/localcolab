@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Aviso</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-primary py-3">
+        <div class="container">
+            <h1 class="text-white">Nuevo Aviso</h1>
+        </div>
+        <!-- Button to go back to index and eliminate local storage info in the right -->
+        <a href="index.html" class="btn btn-light text-primary position-absolute" style="top: 1rem; right: 1rem;">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+    </header>
+    <main class="container mt-4">
+        <section class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Crear Nuevo Aviso</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="create-post-form">
+                            <div class="form-group">
+                                <label for="title">Título:</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Contenido:</label>
+                                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Categoría:</label>
+                                <select class="form-control" id="category" name="category" required>
+                                    <option value="1">Robo</option>
+                                    <option value="2">Asalto</option>
+                                    <option value="3">Casa sola</option>
+                                    <option value="4">Festividades</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Crear Aviso</button>
+                        </form>
+                        <div id="response" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/create-post.js"></script>
+</body>
+</html>

@@ -98,6 +98,12 @@ def lambda_handler(event, context):
             response = get_post(connection, post_id)
         elif http_method == 'GET' and path == posts_path:
             response = get_posts(connection)
+        elif http_method == 'POST' and path == post_path:
+            if event['body'] is None:
+                response = build_response(400, 'Request body is missing or empty')
+            else:
+                response = save_post(connection, json.loads(event['body']))
+                
 
         # Category CRUD operations
 
@@ -114,7 +120,7 @@ def lambda_handler(event, context):
     headers = {
         'Access-Control-Allow-Origin': '*',  # Adjust this to specific origins if needed
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,GET,POST,PUT,DELETE,PATCH'
+        'Access-Control-Allow-Methods': 'OPTIONS,GET,POST,PUT,DELETE',  # Add other allowed methods as needed
     }
 
     return {
@@ -204,6 +210,7 @@ def get_post(connection, post_id):
         print('Error:', e)
         return build_response(500, f'Database error: {e}')
     
+    
 def get_posts(connection):
     try:
         with connection.cursor() as cursor:
@@ -223,6 +230,22 @@ def get_posts(connection):
         print('Error:', e)
         return build_response(500, f'Database error: {e}')
     
+
+def save_post(connection, request_body):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('INSERT INTO Posts (email, category_id, title, content) VALUES (%s, %s, %s, %s)', (request_body['email'], request_body['category_id'], request_body['title'], request_body['content']))
+            connection.commit()
+            return build_response(200, {'Operation': 'SAVE', 'Message': 'SUCCESS', 'Item': request_body})
+    except pymysql.MySQLError as e:
+        print('Error:', e)
+        return build_response(500, f'Database error: {e}')
+    
+
+    
+
+    
+
 
     
 # Category CRUD methods
