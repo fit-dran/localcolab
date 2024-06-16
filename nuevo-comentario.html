@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/comentarios.css">
+</head>
+<body>
+    <header class="bg-primary py-3">
+        <div class="container">
+            <h1 class="text-white">Comentarios</h1>
+        </div>
+        <a href="dashboard.html" class="btn btn-light text-primary position-absolute" style="top: 1rem; right: 1rem;">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+    </header>
+    <main class="container mt-4">
+        <section class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow custom-card">
+                    <div class="card-header bg-custom-header">
+                        <h2 class="mb-0 text-white">Agregar Comentario</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="add-comment-form">
+                            <div class="form-group">
+                                <label for="comment">Comentario:</label>
+                                <textarea class="form-control" id="comment" name="comment" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Agregar Comentario</button>
+                        </form>
+                        <div id="comments" class="mt-4">
+                            <!-- Aquí se mostrarán los comentarios -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS para manejar los comentarios -->
+    <script src="js/comentarios.js"></script>
+</body>
+</html>
