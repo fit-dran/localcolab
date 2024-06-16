@@ -15,7 +15,7 @@
         const apiBaseUrl = 'https://20dotpyrgj.execute-api.us-east-1.amazonaws.com/production';
 
         document.getElementById('fetchStatus').addEventListener('click', async () => {
-            const response = await fetch(`${apiBaseUrl}/status`);
+            const response = await fetch(`${apiBaseUrl}/users`);
             const result = await response.json();
             document.getElementById('statusResult').innerText = result.message;
         });

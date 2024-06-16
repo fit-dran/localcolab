@@ -9,23 +9,26 @@
 
     <script>
         async function fetchAndDisplayUsers() {
-            const endpoint = 'https://w00earvm7g.execute-api.us-east-1.amazonaws.com/dev';
+            const endpoint = 'https://w00earvm7g.execute-api.us-east-1.amazonaws.com/production';
             
+            // use cors header to allow cross origin request
             try {
-                const response = await fetch(endpoint);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-
-                const usersList = document.getElementById('users-list');
-                usersList.innerHTML = '';  // Clear any existing content
-
-                data.body.forEach(user => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = user.username;
-                    usersList.appendChild(listItem);
+                const response = await fetch(endpoint, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    }
                 });
+                const users = await response.json();
+                const usersList = document.getElementById('users-list');
+                console.log(users);
+                users.forEach(user => {
+                    const li = document.createElement('li');
+                    li.appendChild(document.createTextNode(user.name));
+                    usersList.appendChild(li);
+                });
+
+                
             } catch (error) {
                 console.error('Error fetching users:', error);
                 alert('Failed to fetch users. Please try again later.');
