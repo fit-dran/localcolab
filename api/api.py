@@ -104,8 +104,14 @@ def lambda_handler(event, context):
             else:
                 response = save_post(connection, json.loads(event['body']))
                 
-
         # Category CRUD operations
+
+        elif http_method == 'POST' and path == comment_path:
+            if event['body'] is None:
+                response = build_response(400, 'Request body is missing or empty')
+            else:
+                response = save_comment(connection, json.loads(event['body']))
+            
 
 
         elif http_method == 'OPTIONS':
@@ -241,8 +247,16 @@ def save_post(connection, request_body):
         print('Error:', e)
         return build_response(500, f'Database error: {e}')
     
-
     
+def save_comment(connection, request_body):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('INSERT INTO Comments (post_id, email, content) VALUES (%s, %s, %s)', (request_body['post_id'], request_body['email'], request_body['content']))
+            connection.commit()
+            return build_response(200, {'Operation': 'SAVE', 'Message': 'SUCCESS', 'Item': request_body})
+    except pymysql.MySQLError as e:
+        print('Error:', e)
+        return build_response(500, f'Database error: {e}')
 
     
 
