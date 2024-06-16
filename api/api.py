@@ -211,8 +211,14 @@ def get_posts(connection):
             rows = cursor.fetchall()
             result = []
             for row in rows:
-                result.append({'post_id': row[0], 'email': row[1], 'category_id': row[2], 'title': row[3], 'content': row[4]})
+                cursor.execute('SELECT * FROM Comments WHERE post_id = %s', (row[0],))
+                comments = cursor.fetchall()
+                comments_list = []
+                for comment in comments:
+                    comments_list.append({'comment_id': comment[0], 'email': comment[2], 'content': comment[3]})
+                result.append({'post_id': row[0], 'email': row[1], 'category_id': row[2], 'title': row[3], 'content': row[4], 'comments': comments_list})
             return build_response(200, result)
+        
     except pymysql.MySQLError as e:
         print('Error:', e)
         return build_response(500, f'Database error: {e}')
