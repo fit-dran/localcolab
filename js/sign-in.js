@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const data = await response.json();
                     if (data.message.password === password) {
                         // Store user information in localStorage
-                        localStorage.setItem('loggedInUser', JSON.stringify({ email: data.message.email, username: data.message.username }));
+                        localStorage.setItem('loggedInUser', JSON.stringify({ email: data.message.email }));
 
                         // Redirect to another page (e.g., dashboard.html)
                         window.location.href = 'dashboard.html';
