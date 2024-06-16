@@ -120,11 +120,18 @@
         // Lógica para cerrar sesión
         alert("Sesión cerrada");
       }
-
-      function filterNotices(category) {
-        // Lógica para filtrar avisos
-        alert("Filtrar por categoría: " + category);
+      function checkLoggedInUser() {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+          window.location.href = 'index.html';
+        }
       }
+
+      // Check if user is logged in on page load
+      window.onload = checkLoggedInUser;
     </script>
+
+  
+    
   </body>
 </html>
